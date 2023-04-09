@@ -1,0 +1,4 @@
+Configurable Arduino file written in C++ used to automate curtain opening.  For use, needs to be updated with home wifi name and password, as well as some timing work to gauge how long to wind the curtains for, depending on your window size.
+
+Used with two arduino uno wifi v2 along with 2 servos.
+
