@@ -10,8 +10,8 @@
 #include <stdlib.h>
 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = ""        // your network SSID (name)
-char pass[] = "" // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "";        // your network SSID (name)
+char pass[] = ""; // your network password (use for WPA, or use as key for WEP)
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
 
 //wifi config
@@ -77,7 +77,7 @@ void setup() {
 }
 
 void loop() {
-  time_t now = time(nullptr)+total_offset;  
+  // time_t now = time(nullptr)+total_offset;  
   #ifdef __AVR__
   system_tick(); 
   #endif
@@ -119,7 +119,7 @@ void setCronJob(int target_hour, int target_minute, int target_second) {
   char arr[cron_str.length() + 1]; 
   strcpy(arr, cron_str.c_str()); 
   Serial.println(cron_str);
-  Cron.create(arr, MorningAlarm, true);
+  Cron.create(arr, MorningAlarm, false);
 }
 
 double convertToSeconds(int hours, int minutes, int seconds){
@@ -134,9 +134,9 @@ void MorningAlarm() {
     servo1.write(90);
     delay(10);
     servo1.write(0);
-    delay(3000);
-    servo1.write(180);
-    delay(3000);
+    delay(7000);
+    // servo1.write(180);
+    // delay(3000);
     servo1.write(90);
     delay(500);
     servo1.detach();
